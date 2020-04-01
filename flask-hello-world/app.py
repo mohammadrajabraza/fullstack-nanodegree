@@ -15,8 +15,8 @@ db.create_all()
 
 @app.route('/')
 def index():
-    return f'Hello, World!'
-
+    person = Person.query.first()
+    return f'Hello, ' + person.name +'!'
 
 if __name__ == '__main__':
     app.run()
