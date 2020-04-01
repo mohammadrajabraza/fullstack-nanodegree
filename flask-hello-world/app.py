@@ -6,6 +6,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:54
 
 db = SQLAlchemy(app)
 
+class Person(db.Model):
+    __tablename__ = 'persons'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(), nullable=False)
+
+db.create_all()
+
 @app.route('/')
 def index():
     return f'Hello, World!'
