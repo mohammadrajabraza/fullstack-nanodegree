@@ -14,6 +14,16 @@ class Person(db.Model):
     def __repr__(self):
         return f'<Person ID: {self.id}, name: {self.name}>'
 
+class Driver(db.Model):
+    __tablename__ = 'drivers'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(), nullable=False)
+    category = db.Column(db.String(), nullable=False)
+    age = db.Column(db.String(), nullable=False)
+
+    def __repr__(self):
+        return f'<Driver ID: {self.id}, name: {self.name}, category: {self.category}, age: {self.age}>'
+
 db.create_all()
 
 @app.route('/')
